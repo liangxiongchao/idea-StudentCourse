@@ -16,6 +16,8 @@
     <import resource="Transaction.xml"/>
 
     <bean id="loginService" class="cn.edu.guet.service.impl.LoginServiceImpl"></bean>
-
     <bean id="menuService" class="cn.edu.guet.service.impl.MenuServiceImpl"></bean>
+    <bean id="viewService" class="cn.edu.guet.service.impl.ViewServiceImpl"></bean>
+    <bean id="addService" class="cn.edu.guet.service.impl.AddServiceImpl"></bean>
+    <bean id="deleteService" class="cn.edu.guet.service.impl.DeleteServiceImpl"></bean>
 </beans>

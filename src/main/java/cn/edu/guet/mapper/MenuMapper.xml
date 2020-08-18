@@ -12,7 +12,7 @@
         SELECT c.* FROM menus c,menus p WHERE c.pid=p.menuid AND p.menuid=#{id}
     </select>
     <select id="getMenuById" resultMap="getMenuAndChildMenuMap">
-        SELECT * FROM menus WHERE id=#{id}
+        SELECT * FROM menus WHERE menuid=#{id}
     </select>
 
     <select id="getAllMenus" resultMap="getMenuAndChildMenuMap">

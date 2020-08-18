@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.guet.mapper.AddMapper">
+
+    <insert id="insertTeacher" parameterType="teacher">
+        INSERT INTO teachers VALUES(#{teacherId},123456,#{teacherName},#{school.schoolId})
+    </insert>
+
+    <insert id="insertStudent" parameterType="student">
+        INSERT INTO students VALUES(#{studentId},123456,#{studentName},#{clazz.classId})
+    </insert>
+</mapper>

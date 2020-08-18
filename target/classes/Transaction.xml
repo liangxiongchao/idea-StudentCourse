@@ -22,7 +22,7 @@
     </aop:config>
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
-            <tx:method name="save*" rollback-for="" no-rollback-for="Exception"/>
+            <tx:method name="insert*" rollback-for=""/>
             <tx:method name="update*" rollback-for=""/>
             <tx:method name="delete*" rollback-for=""/>
             <tx:method name="*" read-only="true" />

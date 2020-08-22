@@ -6,11 +6,10 @@ import cn.edu.guet.util.Result;
 import cn.edu.guet.service.ILoginService;
 import cn.edu.guet.util.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import javax.servlet.http.HttpSession;
 
 import java.util.List;
 
@@ -19,37 +18,24 @@ public class LoginController {
 
     @Autowired
     ILoginService loginService;
+    @Autowired
+    IMenuService menuService;
 
-    @RequestMapping(value = "login",method = RequestMethod.POST)
+    Result result=new Result();
+
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ResponseBody
-    public Object login(@RequestBody UserDto userDto){
-        String username=userDto.getUsername();
-        String password=userDto.getPassword();
+    public Object login(String username,String password){
         System.out.println("登陆控制器"+username);
         System.out.println("控制器"+password);
         Object user=loginService.login(username,password);
-        Result result=new Result();
+
         if (user==null){
             return result.fail("用户名或密码不正确");
         }
         else{
-            return result.succ(200,"登陆成功",user);
-        }
-    }
-
-    @Autowired
-    IMenuService menuService;
-
-    @RequestMapping(value = "index",method = RequestMethod.GET)
-    @ResponseBody
-    public Result getMenus(){
-        List<Menu> menuList=menuService.getMenu();
-        Result result=new Result();
-        if (menuList==null){
-            return result.fail("用户名或密码不正确");
-        }
-        else{
-            return result.succ(menuList);
+            List<Menu> menuList=menuService.getMenuById(username);
+            return result.succ(200,"登陆成功",menuList);
         }
     }
 }

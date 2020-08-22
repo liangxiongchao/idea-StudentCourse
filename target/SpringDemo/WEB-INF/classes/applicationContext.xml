@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/tx
-        https://www.springframework.org/schema/tx/spring-tx.xsd
-        http://www.springframework.org/schema/aop
-        https://www.springframework.org/schema/aop/spring-aop.xsd
-        http://www.springframework.org/schema/context
-        https://www.springframework.org/schema/context/spring-context.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <import resource="Transaction.xml"/>
 
     <bean id="loginService" class="cn.edu.guet.service.impl.LoginServiceImpl"></bean>
 
     <bean id="menuService" class="cn.edu.guet.service.impl.MenuServiceImpl"></bean>
+
+    <bean id="studentService" class="cn.edu.guet.service.impl.StudentServiceImpl"></bean>
+
+    <bean id="UserService" class="cn.edu.guet.service.impl.UserServiceImpl"></bean>
 </beans>

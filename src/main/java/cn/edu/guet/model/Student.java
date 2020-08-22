@@ -3,7 +3,6 @@ package cn.edu.guet.model;
 public class Student {
     private String studentId;
     private String studentName;
-    private String sex;
     private Clazz clazz;
 
     public String getStudentId() {
@@ -20,14 +19,6 @@ public class Student {
 
     public void setStudentName(String studentName) {
         this.studentName = studentName;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
     }
 
     public Clazz getClazz() {

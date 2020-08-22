@@ -2,9 +2,8 @@ package cn.edu.guet.model;
 
 public class Clazz {
     private String classId;
-    private String clazzName;
     private String grade;
-    private Major majorid;
+    private Major major;
 
     public String getClassId() {
         return classId;
@@ -12,14 +11,6 @@ public class Clazz {
 
     public void setClassId(String classId) {
         this.classId = classId;
-    }
-
-    public String getClazzName() {
-        return clazzName;
-    }
-
-    public void setClazzName(String clazzName) {
-        this.clazzName = clazzName;
     }
 
     public String getGrade() {
@@ -30,11 +21,11 @@ public class Clazz {
         this.grade = grade;
     }
 
-    public Major getMajorid() {
-        return majorid;
+    public Major getMajor() {
+        return major;
     }
 
-    public void setMajorid(Major majorid) {
-        this.majorid = majorid;
+    public void setMajor(Major major) {
+        this.major = major;
     }
 }

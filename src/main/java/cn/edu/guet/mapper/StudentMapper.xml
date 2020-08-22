@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.guet.mapper.StudentMapper">
+    <resultMap id="getCourseTeacherNameMap" type="Course">
+        <id property="courseId" column="COURSEID"/>
+        <result property="courseName" column="COURSENAME"/>
+        <association property="teacher" column="TEACHERID">
+            <id property="teacherId" column="TEACHERID"/>
+            <result property="teacherName" column="TEACHERNAME"/>
+        </association>
+        <association property="major" column="MAJORID">
+            <id property="majorId" column="MAJORID"/>
+        </association>
+    </resultMap>
+    <select id="getCourse" resultMap="getCourseTeacherNameMap">
+        select c.*,t.teachername from courses c,teachers t WHERE c.teacherid=t.teacherid AND majorid=#{majorid}
+    </select>
+</mapper>
